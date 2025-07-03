@@ -1,0 +1,97 @@
+# Đây là file ví dụ hoàn chỉnh cho ngôn ngữ lập trình .vie (VieScript)
+# Phiên bản sử dụng cú pháp khối lệnh { ... }
+
+in("--- Bắt đầu chương trình VieScript ---")
+
+# 1. Biến và các kiểu dữ liệu cơ bản
+in("1. Khai báo biến và các kiểu dữ liệu:")
+cho thông_điệp = "Chào mừng đến với VieScript!"
+cho số_nguyên = 100
+cho số_thực = 2
+cho là_sự_thật = đúng
+cho là_giả_dối = sai
+cho giá_trị_rỗng = rỗng
+
+in(thông_điệp)
+in("Số nguyên:", số_nguyên, ", Số thực:", số_thực)
+in("Boolean:", là_sự_thật, "hoặc", là_giả_dối)
+in("Giá trị rỗng:", giá_trị_rỗng)
+
+# 2. Định nghĩa và gọi hàm (ví dụ đệ quy)
+in("\n2. Định nghĩa và gọi hàm:")
+hàm tínhGiaiThừa(n) {
+  # Điều kiện dừng của đệ quy
+  nếu (n < 0) {
+    in("Lỗi: Không thể tính giai thừa cho số âm.")
+    trả_về rỗng
+  }
+  nếu (n == 0) {
+    trả_về 1
+  }
+  
+  # Lời gọi đệ quy
+  trả_về n * tínhGiaiThừa(n - 1)
+}
+
+cho số_cần_tính = 5
+cho kết_quả_giai_thừa = tínhGiaiThừa(số_cần_tính)
+in("Giai thừa của", số_cần_tính, "là", kết_quả_giai_thừa)
+
+
+# 3. Mảng và vòng lặp
+in("\n3. Mảng và các loại vòng lặp:")
+cho danh_sách_trái_cây = ["Táo", "Cam", "Chuối", "Dâu Tây"]
+danh_sách_trái_cây[1] = "Xoài" # Thay thế "Cam" bằng "Xoài"
+
+in("Độ dài của danh sách là:", độ_dài(danh_sách_trái_cây))
+
+in("Vòng lặp 'với_mỗi':")
+với_mỗi (trái_cây trong danh_sách_trái_cây) {
+  in("- Tôi thích ăn", trái_cây)
+}
+
+in("Vòng lặp 'khi':")
+cho i = 0
+khi (i < độ_dài(danh_sách_trái_cây)) {
+  in("Phần tử tại chỉ số", i, "là", danh_sách_trái_cây[i])
+  i = i + 1
+}
+
+# 4. Lập trình Hướng đối tượng (OOP)
+in("\n4. Lập trình hướng đối tượng:")
+
+lớp Người {
+  # Hàm khởi tạo, được gọi khi dùng từ khóa 'mới'
+  hàm khởi_tạo(tên, tuổi) {
+    # 'this' được dùng để tham chiếu đến đối tượng hiện tại
+    this.tên = tên
+    this.tuổi = tuổi
+    this.năng_lượng = 100
+  }
+  
+  # Một phương thức của lớp
+  hàm giới_thiệu() {
+    in("Xin chào, tôi là", this.tên, ", năm nay tôi", this.tuổi, "tuổi.")
+  }
+
+  # Một phương thức khác
+  hàm chạy_bộ(số_km) {
+    in(this.tên, "đang chạy bộ", số_km, "km...")
+    this.năng_lượng = this.năng_lượng - (số_km * 10)
+    nếu (this.năng_lượng < 0) {
+      this.năng_lượng = 0
+    }
+    in("Năng lượng còn lại:", this.năng_lượng)
+  }
+}
+
+# Tạo một đối tượng (instance) mới từ lớp 'Người'
+cho lập_trình_viên = mới Người("An", 25)
+
+# Gọi các phương thức của đối tượng
+lập_trình_viên.giới_thiệu()
+lập_trình_viên.chạy_bộ(5)
+lập_trình_viên.chạy_bộ(3)
+
+
+in("\n--- Chương trình VieScript kết thúc ---")
