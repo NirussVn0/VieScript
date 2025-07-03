@@ -5,7 +5,8 @@
   "main": "dist/compiler.js",
   "scripts": {
     "compile": "tsc",
-    "start": "npx ts-node src/compiler.ts"
+    "start": "node -r ts-node/register src/compiler.ts",
+    "dev": "ts-node src/compiler.ts"
   },
   "keywords": [],
   "author": "",

@@ -13,14 +13,24 @@ export enum TokenType {
 
 export interface Token { type: TokenType; value: string; line: number; }
 
-const KEYWORDS: Record<string, TokenType> = {
-  cho: TokenType.CHO, nếu: TokenType.NẾU, còn_nếu: TokenType.CÒN_NẾU,
-  ngược_lại: TokenType.NGƯỢC_LẠI, khi: TokenType.KHI, với_mỗi: TokenType.VỚI_MỖI,
-  trong: TokenType.TRONG, hàm: TokenType.HÀM, trả_về: TokenType.TRẢ_VỀ,
-  đúng: TokenType.ĐÚNG, sai: TokenType.SAI, rỗng: TokenType.RỖNG,
-  và: TokenType.VÀ, hoặc: TokenType.HOẶC, lớp: TokenType.LỚP, mới: TokenType.MỚI,
-  this: TokenType.THIS,
-};
+const KEYWORDS: Record<string, TokenType> = {};
+KEYWORDS['cho'] = TokenType.CHO;
+KEYWORDS['nếu'] = TokenType.NẾU;
+KEYWORDS['còn_nếu'] = TokenType.CÒN_NẾU;
+KEYWORDS['ngược_lại'] = TokenType.NGƯỢC_LẠI;
+KEYWORDS['khi'] = TokenType.KHI;
+KEYWORDS['với_mỗi'] = TokenType.VỚI_MỖI;
+KEYWORDS['trong'] = TokenType.TRONG;
+KEYWORDS['hàm'] = TokenType.HÀM;
+KEYWORDS['trả_về'] = TokenType.TRẢ_VỀ;
+KEYWORDS['đúng'] = TokenType.ĐÚNG;
+KEYWORDS['sai'] = TokenType.SAI;
+KEYWORDS['rỗng'] = TokenType.RỖNG;
+KEYWORDS['và'] = TokenType.VÀ;
+KEYWORDS['hoặc'] = TokenType.HOẶC;
+KEYWORDS['lớp'] = TokenType.LỚP;
+KEYWORDS['mới'] = TokenType.MỚI;
+KEYWORDS['this'] = TokenType.THIS;
 
 export class Lexer {
   private source: string;

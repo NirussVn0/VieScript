@@ -176,11 +176,9 @@ export class Parser {
     if (this.match(TokenType.RỖNG)) return AST.createNullLiteral();
     if (this.match(TokenType.NUMBER)) return AST.createNumericLiteral(parseFloat(this.previous().value));
     if (this.match(TokenType.STRING)) return AST.createStringLiteral(this.previous().value);
+    if (this.match(TokenType.THIS)) return AST.createThisExpression();
 
     if (this.match(TokenType.IDENTIFIER)) {
-      if (this.previous().value === 'this') {
-        return AST.createThisExpression();
-      }
       return AST.createIdentifier(this.previous().value);
     }
 
